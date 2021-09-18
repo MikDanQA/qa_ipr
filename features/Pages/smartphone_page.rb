@@ -29,7 +29,7 @@ class SmartphonePage
 
   def delivery_accounting (delivery)
     @browser.element(xpath: "//span[contains(.,'#{delivery.to_s}')]").wait_until_present.click
-    sleep(5)
+    sleep(3)
   end
 
   def check_no_articles
@@ -53,16 +53,19 @@ class SmartphonePage
         break
       end
     end
-
   end
 
   def open_battery_filter
-    @browser.element(battery_capacity + "//button").wait_until_present.click
+    @browser.element(xpath: "//fieldset[.//legend[contains(., 'аккумулятора')]]//button").wait_until_present.click
   end
 
-  def inst_battery_filter (campacity)
-    @browser.element(battery_capacity + "//span[contains(.,'#{campacity.to_s}')]").wait_until_present.click
+  def inst_battery_filter (capacity)
+    @browser.element(xpath: "//fieldset[.//legend[contains(., 'аккумулятора')]]//span[contains(.,'#{capacity.to_s}')]").wait_until_present.click
+    sleep(3)
   end
-  # нужен переход по страницам телефонов для проверки, ДОПИСАТЬ
+
+  def articles_page_button (index)
+    @browser.element(xpath: "//article[#{index}]//h3//a").wait_until_present.click
+  end
 
 end

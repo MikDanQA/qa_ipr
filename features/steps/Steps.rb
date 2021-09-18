@@ -11,3 +11,13 @@ end
 When(/^закрыли браузер$/) do
   @browser.quit
 end
+
+When(/^закрыли текущую вкладку$/) do
+  @browser.windows.last.close
+  @browser.windows.last.use
+end
+
+When(/^указали, что "я не робот"$/) do
+  on_page(BotPage).check_location
+  on_page(BotPage).click_bot_button
+end

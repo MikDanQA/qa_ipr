@@ -1,4 +1,3 @@
-require 'page-object'
 class ElectronicsPage
 
   include PageObject
