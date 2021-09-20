@@ -14,7 +14,15 @@ class BotPage
   end
 
   def click_bot_button
-    @browser.element(xpath: "//div[contains(@class, 'CheckboxCaptcha-Anchor')]").wait_until_present.click
+    begin
+      bot_page_element.wait_until_present
+    rescue Exception => e
+      puts e.message
+      puts e.backtrace.inspect
+    else
+      @browser.element(xpath: "//div[contains(@class, 'CheckboxCaptcha-Anchor')]").wait_until_present.click
+    end
+
   end
 
 end

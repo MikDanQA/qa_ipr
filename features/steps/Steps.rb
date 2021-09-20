@@ -18,6 +18,6 @@ When(/^закрыли текущую вкладку$/) do
 end
 
 When(/^указали, что "я не робот"$/) do
-  on_page(BotPage).check_location
+  #on_page(BotPage).check_location
   on_page(BotPage).click_bot_button
 end

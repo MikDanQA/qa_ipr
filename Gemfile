@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+gem 'cucumber'
+gem 'selenium-webdriver'
+gem 'xpath'
+gem 'json'
+gem 'page-object'
+gem 'webdrivers'
